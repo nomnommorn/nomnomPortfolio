@@ -1,1 +1,0 @@
-(()=>{"use strict";$(document).ready(()=>{console.log("LOADED");{console.log("menu func");const n=$("#menuwrap"),o=$(".downarw");var e=$("#menu");return void n.hover(()=>{o.hide(),e.fadeIn(300)},()=>{e.hide(),o.fadeIn(300)})}})})();

@@ -6,6 +6,7 @@ const sass = require('gulp-sass')(require('node-sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const ejs = require("gulp-ejs");
 
+const plumber = require('gulp-plumber');
 const pleeease = require('gulp-pleeease');
 const rename = require("gulp-rename");
 const uglify = require('gulp-uglify');
@@ -16,24 +17,32 @@ const fs = require('fs');
 
 // setting
 const assets_dir = {
-    css: './dist/assets/css/',
-    js: './dist/assets/js/',
-    img: './dist/assets/img/',
+    css: './docs/assets/css/',
+    js: './docs/assets/js/',
+    img: './docs/assets/img/',
 };
 const src_file = {
     ejs: './src/ejs/**/*.ejs',
     excl_ejs: '!./src/ejs/_include/**/*.ejs',
     scss: './src/scss/*.scss',
     js: './src/js/**/*.js',
-    img: './dist/assets/img/**/*.+(jpg|jpeg|png|gif)',
-    svg: './dist/assets/img/**/*.svg'
+    img: './docs/assets/img/**/*.+(jpg|jpeg|png|gif)',
+    svg: './docs/assets/img/**/*.svg'
 };
+
+const errorHandler = function(error) {
+    console.log('ERROR!(+_+)');
+    console.log(error.message);
+}
 
 const webpackConfig = require('./webpack.config');
 
 // for Js
 function js_compile(){
   return webpackStream(webpackConfig, webpack)
+  .pipe(plumber({
+        errorHandler: errorHandler
+    }))
   .pipe(uglify())
   .pipe(gulp.dest(assets_dir.js)); 
 };
@@ -43,6 +52,9 @@ exports.task = js_compile;
 function sass_compile(){
     return gulp
         .src(src_file.scss)
+        .pipe(plumber({
+            errorHandler: errorHandler
+        }))
         .pipe(sass())
         .pipe(pleeease())
         .pipe(autoprefixer())
@@ -55,6 +67,9 @@ function ejs_compile(){
     return gulp
         .src([src_file.ejs, src_file.excl_ejs])
         .pipe(ejs())
+        .pipe(plumber({
+            errorHandler: errorHandler
+        }))
         .pipe(rename({
             basename: 'index', //ファイル名
             extname: '.html' //拡張子
@@ -66,7 +81,7 @@ function ejs_compile(){
             "preserve_newlines": false,
             "extra_liners": [],
           }))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest("./docs"));
 };
 exports.task = ejs_compile;
 
@@ -74,7 +89,7 @@ exports.task = ejs_compile;
 function serve(done) {
     browserSync({
         server: {
-            baseDir: './dist'
+            baseDir: './docs'
         },
         port: 3000
 

@@ -1,5 +1,7 @@
 export function menu() {
-    console.log('menu func')
+    
+    // console.log('menu func')
+
     // --- Menu Display func
     const targetarea = $('#menuwrap')
     const arw = $('.downarw')
@@ -14,4 +16,14 @@ export function menu() {
         menu.hide();
         arw.fadeIn(300);
     });
+
+    // --- display elements
+    const top = $("#top")
+    top.show();
+    // const menu = $("#menu a")
+    // var clickedmenu = $("#menu a").href
+    // menu.on('clicked', () => {
+    //     console.log(this.href);
+    // })
+    
 }

@@ -9,7 +9,7 @@ a {
   color: inherit;
   text-decoration: none;
   &:hover{
-    color: #dfdb72;
+    color: #e1de96;
   }
 }
 
@@ -37,8 +37,8 @@ h2 {
   }
   
   .elements {
+    display: none;
     margin: 30px auto;
-    display: inline-block;
     width: 100%;
     > img {
      z-index: 3; 
@@ -77,7 +77,7 @@ header {
     width: 100%;
     text-align: center;
     z-index: 100;
-    cursor: pointer;
+    // cursor: pointer;
     .downarw {
       display: block;
       margin: 0 auto;
@@ -112,7 +112,6 @@ header {
   background-color: #85DEEE;
   .inside {
     position: relative;
-    padding: 0 20px 50px;
     background-color: #fff;
   }
   h1 {
@@ -121,11 +120,48 @@ header {
 }
 #top {
   text-align: center;
-  h1 {
+  .copy {
     display: block;
     margin: 0 auto;
-    font-size: 5em;
+    padding: 0 20px;
+    >h1 {
+      display: inline-block;
+      font-size: 7vw;
+      line-height: 9.5vw;
+    }
+    .colored {
+      animation: flash-in 300ms linear;
+      @keyframes flash-in {
+        0% {
+          color: #85DEEE
+        }
+        100% {
+          color: #fff;
+        }
+      }
+    }
+    >span {
+      padding-right: 2.3vw;
+    }
   }
+  #geo {
+    width: 100%;
+    height: calc(100vh - 30px);
+    #glcanvas{
+      display: none;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .cableslink {
+      color: #cbcbcb;
+      font-size: 10px;
+      transform: translateY(-20px);
+      >a {
+        text-decoration: revert;
+      }
+    }
+  }
+
 }
 
 #profile {
@@ -199,10 +235,10 @@ header {
 }
 #corner_TR {
   position: fixed;
-  top: calc(185px - 17px);
-  right: calc(50px - 17px);
-  width: 100px;
-  height: 100px;
+  top: calc(178px - 17px);
+  right: calc(42px - 17px);
+  width: 140px;
+  height: 140px;
   background-image: url(../img/rect.png);
   background-repeat:  no-repeat;
   background-position: right top; 
@@ -212,10 +248,10 @@ header {
 
 #corner_BR {
   position: fixed;
-  bottom: calc(30px - 17px);
-  right: 30px;
-  width: 100px;
-  height: 100px;
+  bottom: calc(23px - 17px);
+  right: 26px;
+  width: 140px;
+  height: 140px;
   background-image: url(../img/rect.png);
   background-repeat: no-repeat;
   background-position: right top;
