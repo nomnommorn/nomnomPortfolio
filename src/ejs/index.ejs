@@ -26,6 +26,7 @@
   <%- include ('_include/_header') %>
       <div class="contentswrap">
         <div class="inside">
+<<<<<<< HEAD
           <div id="top" class="elements">
               <h1>This is asaco's portfolio page.</h1>
               <h1>I seek for, create and do something fun.</h1>
@@ -35,9 +36,41 @@
           <%- include ('_include/_contact') %>
           <div id="corner_TR"></div>
           <div id="corner_BR"></div>
+=======
+          <%- include ('_include/_top') %>
+>>>>>>> 47a735c9bde03c3f3b795bf9641da8087f703259
         </div>
+        <div id="corner_TR"></div>
+        <div id="corner_BR"></div>
       </div>
   <%- include ('_include/_footer') %>
+  <script>
+
+    // disable rubberband effect on mobile devices
+    document.getElementById('glcanvas').addEventListener('touchmove', (e)=>{ e.preventDefault(); }, false);
+
+
+    function patchInitialized(patch) {
+        // You can now access the patch object (patch), register variable watchers and so on
+    }
+
+    function patchFinishedLoading(patch) {
+        // The patch is ready now, all assets have been loaded
+        
+    }
+
+    document.addEventListener('CABLES.jsLoaded', function (event) {
+        CABLES.patch = new CABLES.Patch({
+            patch: CABLES.exportedPatch,
+            "prefixAssetPath": "",
+            "glCanvasId": "glcanvas",
+            "glCanvasResizeToWindow": true,
+            "onPatchLoaded": patchInitialized,
+            "onFinishedLoading": patchFinishedLoading,
+            // "canvas":{"alpha":true,"premultipliedAlpha":true} // make canvas transparent
+        });
+    });
+</script>
 </body>
 
 </html>

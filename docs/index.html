@@ -27,6 +27,7 @@
       <div id="menuarea">
         <ul id="menu">
           <li>
+<<<<<<< HEAD
             <Link href="/">
             <a>Top</a>
             </Link>
@@ -45,6 +46,18 @@
             <Link href="#contact">
             <a>Contact</a>
             </Link>
+=======
+            <a href="/"> Top </a>
+          </li>
+          <li>
+            <a href="/profile"> Profile </a>
+          </li>
+          <li>
+            <a href="/works"> Works </a>
+          </li>
+          <li>
+            <a href="/contact"> Contact </a>
+>>>>>>> 47a735c9bde03c3f3b795bf9641da8087f703259
           </li>
         </ul>
         <!-- <img class="downarw" src="./assets/img/down_arrow_icon.svg" alt="down arrow"> -->
@@ -57,6 +70,7 @@
   <div class="contentswrap">
     <div class="inside">
       <div id="top" class="elements">
+<<<<<<< HEAD
         <h1>This is asaco's portfolio page.</h1>
         <h1>I seek for, create and do interesting thing.</h1>
       </div>
@@ -124,6 +138,23 @@
       <div id="corner_BR"></div>
     </div>
   </div>
+=======
+        <div class="copy">
+        </div>
+        <div id="geo">
+          <canvas id="glcanvas" tabindex="1"></canvas>
+          <libs />
+          <script type="text/javascript" src="./assets/js/cables/patch.js" async></script>
+          <corelibs />
+        </div>
+      </div>
+    </div>
+    <div id="corner_TR"></div>
+    <div id="corner_BR"></div>
+  </div>
+  <div id="frame_r"></div>
+  <div id="frame_l"></div>
+>>>>>>> 47a735c9bde03c3f3b795bf9641da8087f703259
   <div id="frame_btm"></div>
   <footer>
     <div id="footer">
@@ -132,5 +163,33 @@
   </footer>
 </body>
 </html>
+<<<<<<< HEAD
+=======
+<script>
+  // disable rubberband effect on mobile devices
+  document.getElementById('glcanvas').addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  }, false);
+
+  function patchInitialized(patch) {
+    // You can now access the patch object (patch), register variable watchers and so on
+  }
+
+  function patchFinishedLoading(patch) {
+    // The patch is ready now, all assets have been loaded
+  }
+  document.addEventListener('CABLES.jsLoaded', function(event) {
+    CABLES.patch = new CABLES.Patch({
+      patch: CABLES.exportedPatch,
+      "prefixAssetPath": "",
+      "glCanvasId": "glcanvas",
+      "glCanvasResizeToWindow": true,
+      "onPatchLoaded": patchInitialized,
+      "onFinishedLoading": patchFinishedLoading,
+      // "canvas":{"alpha":true,"premultipliedAlpha":true} // make canvas transparent
+    });
+  });
+</script>
+>>>>>>> 47a735c9bde03c3f3b795bf9641da8087f703259
 </body>
 </html>
