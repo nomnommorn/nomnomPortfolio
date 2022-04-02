@@ -19,7 +19,8 @@ export function texteffect() {
 
     let n = 0;
     const copy = $('.copy')
-    const mainimg = $('#glcanvas')
+    const mainimg = $('#geo')
+    const content = $('#glcanvas')
 
     const int = setInterval(() => {
 
@@ -34,12 +35,17 @@ export function texteffect() {
         n++;
 
         if(n > 35){
-            console.log('finished')
             clearInterval(int);
-            copy.fadeOut(1500);
+
+            // content.show();
             setTimeout(() => {
-                mainimg.fadeIn(1000);
-            }, 1500);
+                mainimg.fadeIn(3000);
+                // mainimg.show();
+            }, 500);
+
+            setTimeout(() => {
+                copy.fadeOut(1000);
+            }, 5000);
         }
     }, 100);
 
