@@ -53,6 +53,9 @@ header {
   width: 100vw;
   height: 185px;
   z-index: 11;
+  @media (max-width: 600px) {
+    height: 140px;
+  }
   #menuwrap {
     display: inline-block;
     width: 100%;
@@ -87,7 +90,7 @@ header {
       cursor: pointer;
       @media (max-width: 600px) {
         font-size: 1rem;
-        margin: 15px auto;
+        margin: 0 auto;
       }
       .downarw {
         display: block;
@@ -110,7 +113,7 @@ header {
         margin: 0 auto;
         padding: 0;
         @media (max-width: 600px) {
-          margin: 0 auto 20px;
+          margin: 0 auto 5px;
         }
         li {
           list-style: none;
@@ -139,6 +142,9 @@ header {
   width: 100%;
   height: calc(100% - 30px);
   padding: 185px 50px 0;
+  @media (max-width: 600px) {
+    padding: 140px 50px 0;
+  }
   .inside {
     position: relative;
     background-color: #fff;
@@ -249,22 +255,43 @@ header {
     list-style: none;
     padding: 0;
     .works_elm{
-      display: inline-block;
+      float: left;
       width: 30%;
       margin-right: 4%;
+      margin-bottom: 7%;
+      @media (max-width: 600px) {
+        float: left;
+        width: 45%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+      }
       >a{
         width: 100%;
         height: 100%;
         display: block;
-        >img {
+        .works_img{
+          background: #000;
           width: 100%;
-          max-height: 217px;
-          object-fit: cover;
+          height: 217px;
+          text-align: center;
+          @media (max-width: 600px) {
+            height: 75px;
+          }
+          >img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
         >h2 {
           font-size: 20px;
           font-weight: 700;
           margin: 10px 0;
+          @media (max-width: 600px) {
+            font-size: 1rem;
+            overflow-wrap: break-word;
+            line-height: 1.1rem;
+          }
         }
         >p {
           font-family: Space Grotesk,sans-serif;
@@ -273,9 +300,17 @@ header {
           font-size: 0.8rem;
         }
       }
-    }
-    .works_elm:nth-child(3){
-      margin-right: 0;
+      &:nth-child(3n){
+        margin-right: 0;
+        @media (max-width: 600px) {
+          margin-right: unset;
+        }
+      }
+      &:nth-child(2n){
+        @media (max-width: 600px) {
+          margin-right: 0;
+        }
+      }
     }
   }
   /*-----  WORKS elements  -----*/
@@ -289,6 +324,7 @@ header {
   >h1 {
     font-weight: 800;
     font-size: 1.5rem;
+    overflow-wrap: break-word;
   }
   >iframe {
     display: block;
@@ -311,15 +347,30 @@ header {
     >p{
       font-size: 1rem;
       line-height: 1.5rem;
-      >a {
-        color:#85DEEE;
+      }
+    >a {
+      color:#85DEEE;
+      text-decoration: underline;
+      &:hover{
+        color: #EFEECE;
       }
     }
     >img {
-      margin-right: 10px;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      display: block;
       @media (max-width: 600px) {
         width: 100%;
       }
+    }
+    .col2 {
+      width: 50%;
+      display: inline-block;
+    }
+    .col3 {
+      width: 30%;
+      display: inline-block;
     }
     .works_tag {
       margin: 2rem auto;
@@ -385,11 +436,11 @@ header {
 }
 #frame_btm {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   border-bottom: 30px solid #85DEEE;
   top: calc(100vh - 30px);
   left: 0;
-  z-index: 10;
+  z-index: 12;
 }
 #corner_TR {
   position: fixed;
@@ -402,6 +453,9 @@ header {
   background-position: right top; 
   background-size: contain;
   z-index: 11;
+  @media (max-width: 600px) {
+    top: calc(133px - 17px);
+  }
 }
 
 #corner_BR {
@@ -422,7 +476,7 @@ header {
 footer {
   width: 100%;
   height: auto;
-  z-index: 11;
+  z-index: 15;
   position: fixed;
   bottom: 12px;
   p{
